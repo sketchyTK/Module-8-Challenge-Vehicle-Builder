@@ -47,7 +47,7 @@ if (wheels.length !== 2) {
   // TODO: Implement the wheelie method
     // TODO: The method should log the message "Motorbike [make] [model] is doing a wheelie!"
   }
-  wheelie(vehicle: Motorbike) {
+  wheelie(vehicle: Motorbike): void {
     console.log(`Motorbike ${vehicle.make} ${vehicle.model} is doing a wheelie!`);
   }
   // TODO: Override the printDetails method from the Vehicle class
