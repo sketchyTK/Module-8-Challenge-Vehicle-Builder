@@ -9,7 +9,7 @@ Because this application won't be deployed, you'll need to provide a link to a w
 Refer to the [video submission guide on the Full-Stack Blog](https://coding-boot-camp.github.io/full-stack/computer-literacy/video-submission-guide) for additional guidance on creating a video.
 
 ### User Story
-
+https://stackoverflow.com/questions/21525282/for-else-loop-in-javascript - used for wheelie & towing methods in Cli.ts
 ```md
 AS a developer
 I WANT to update an existing application to include additional vehicle types
