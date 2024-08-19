@@ -301,7 +301,7 @@ class Cli {
         // TODO: if it is, log that the truck cannot tow itself then perform actions on the truck to allow the user to select another action
         
              
-            if (answers.vehicleToTow === assignTheTowTruckToVariable) {
+            if (answers.vehicleToTow === this.selectedVehicleVin) {
               
               console.log(`Truck cannot tow itself. Select a different vehicle to tow.`);
              
@@ -312,7 +312,7 @@ class Cli {
         
             if (answers.vehicleToTow != this.selectedVehicleVin) {
                 console.log(`The ${answers.vehicleToTow.make} ${answers.vehicleToTow.model} is ready to tow.`);
-                towTruck = this.selectedVehicleVin;
+              let towTruck = Truck;
               towTruck.tow(answers.vehicleToTow).
              return;
             
