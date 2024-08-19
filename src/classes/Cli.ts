@@ -310,8 +310,9 @@ class Cli {
             (answers.vehicleToTow.vin != this.selectedVehicleVin) 
           {
                 console.log(`The ${answers.vehicleToTow.make} ${answers.vehicleToTow.model} is ready to tow.`);
-              // let towTruck = Truck;
-              // towTruck.tow(answers.vehicleToTow);
+                // var userValidators : IUserValidators = new UserValidators();
+              var towTruck = answers.vehicleToTow;
+              towTruck.tow(this.selectedVehicleVin);
              return;
             
           }
@@ -421,21 +422,59 @@ class Cli {
           }
         
         // TODO: add statements to perform the wheelie action only if the selected vehicle is a motorbike
+        // This works but the else satement cannot contain the selected vehicle's details
         else if (answers.action === 'Wheelie') {
           let wheelieRun = false;
            for (let i = 0; i < this.vehicles.length; i++) {
               if (this.vehicles[i].vin === this.selectedVehicleVin && this.vehicles[i] instanceof Motorbike) {
                 console.log(`${this.vehicles[i].model} did a Wheelie`);
                 wheelieRun = true;
+                  this.performActions();
+                return;
               }
             }
                if (!wheelieRun) {
-                console.log(`${this.selectedVehicleVin} cannot perform a Wheelie. Select a Motorbike.`);
+                console.log(`This vehicle cannot perform a Wheelie. Select a Motorbike.`);
                 this.performActions();
                 return;
                 
               }
             }
+// This action does not work. It thinks this.vehicles[i].vin is the Truck and automatically goes to the else statement          
+//         else if (answers.action === 'Wheelie') {
+//            for (let i = 0; i < this.vehicles.length; i++) {
+//             //  console.log(this.vehicles[i].vin);
+//             //  console.log(this.selectedVehicleVin);
+//               if (this.vehicles[i].vin === this.selectedVehicleVin && this.vehicles[i] instanceof Motorbike) {
+//                 console.log(`${this.vehicles[i].model} did a Wheelie`);
+//                 this.performActions();
+//                 return;
+//               }
+//               else { 
+//                 console.log(`This vehicle (${this.vehicles[i].make}) cannot perform a Wheelie. Select a Motorbike.`);
+//                 this.performActions();
+//                 return;
+//               }
+//             }               
+//         }
+
+          // The first statment works, but the second one gives the wrong vehicle
+          // else if (answers.action === 'Wheelie') {
+          //   for (let i = 0; i < this.vehicles.length; i++) {
+          //     if (this.vehicles[i].vin === this.selectedVehicleVin && this.vehicles[i] instanceof Motorbike) {
+          //       console.log(`${this.vehicles[i].model} did a Wheelie`);
+          //       this.performActions();
+          //       return;
+          //     }
+          //   }
+          //   for (let i = 0; i < this.vehicles.length; i++) {
+          //     if (this.vehicles[i].vin != this.selectedVehicleVin) {
+          //       console.log(`${this.vehicles[i].model} cannot perform a Wheelie. Select a Motorbike.`);
+          //       this.performActions();
+          //       return;
+          //     }
+          //   }
+          // }
 
 
         else if (answers.action === 'Select or create another vehicle') {

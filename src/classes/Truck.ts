@@ -56,10 +56,10 @@ class Truck extends Vehicle {
   tow(vehicle: Truck | Motorbike | Car): void {
     // TODO: Get the make and model of the vehicle if it exists
     if (vehicle.vin != '' ) {
-      console.log(vehicle.vin);
+      console.log(vehicle.make);
     }
     if (vehicle.model != '' ) {
-      console.log(vehicle.vin);
+      console.log(vehicle.model);
     }
     // TODO: Check if the vehicle's weight is less than or equal to the truck's towing capacity
     // const towVehicle = new Array<AbleToTow>;
@@ -67,10 +67,10 @@ class Truck extends Vehicle {
  
     if (vehicle.weight <= this.towingCapacity) {
     // TODO: If it is, log that the vehicle is being towed
-     console.log(`${vehicle} is being towed`);}
+     console.log(`${vehicle.make} is being towed`);}
     // TODO: If it is not, log that the vehicle is too heavy to be towed
      else {
-    console.log((`${vehicle} is too heavy to be towed`));
+    console.log((`${vehicle.make} is too heavy to be towed`));
      }
   }
 
