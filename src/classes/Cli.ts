@@ -309,19 +309,29 @@ class Cli {
             else 
               {
                 console.log(`The ${answers.vehicleToTow.make} ${answers.vehicleToTow.model} is ready to tow.`);
+
                 // var userValidators : IUserValidators = new UserValidators();
                 //go thru vehicles array and find Truck
                 // when vehicles vin is selected then it is equal to truck
+//                 let towTruck = this.selectedVehicleVin;
+//           let towTruck = this.vehicles.filter((Truck) => {
+//               if (towTruck === Truck) {
+//                 return true;
+//               }
+//             }
+//           )
+// towTruck.tow(answers.vehicleToTow.vin);
               for (let i = 0; i < this.vehicles.length; i++) {
                 if (this.vehicles[i] instanceof Truck)  {
-              
-              tow(answers.vehicleToTow);
+             const towTruck = this.vehicles[i];
+              towTruck.tow(answers.vehicleToTow);
 
              return;
                 }
           }
         
-        })
+        }
+    })
   }
   // method to perform actions on a vehicle
   performActions(): void {
