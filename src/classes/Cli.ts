@@ -307,14 +307,18 @@ class Cli {
             } 
         // TODO: if it is not, tow the selected vehicle then perform actions on the truck to allow the user to select another action
             else 
-            (answers.vehicleToTow.vin != this.selectedVehicleVin) 
-          {
+              {
                 console.log(`The ${answers.vehicleToTow.make} ${answers.vehicleToTow.model} is ready to tow.`);
                 // var userValidators : IUserValidators = new UserValidators();
-              var towTruck = answers.vehicleToTow;
-              towTruck.tow(this.selectedVehicleVin);
+                //go thru vehicles array and find Truck
+                // when vehicles vin is selected then it is equal to truck
+              for (let i = 0; i < this.vehicles.length; i++) {
+                if (this.vehicles[i] instanceof Truck)  {
+              
+              tow(answers.vehicleToTow);
+
              return;
-            
+                }
           }
         
         })
