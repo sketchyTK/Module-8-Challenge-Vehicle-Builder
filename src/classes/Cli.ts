@@ -310,22 +310,11 @@ class Cli {
               {
                 console.log(`The ${answers.vehicleToTow.make} ${answers.vehicleToTow.model} is ready to tow.`);
 
-                // var userValidators : IUserValidators = new UserValidators();
-                //go thru vehicles array and find Truck
-                // when vehicles vin is selected then it is equal to truck
-//                 let towTruck = this.selectedVehicleVin;
-//           let towTruck = this.vehicles.filter((Truck) => {
-//               if (towTruck === Truck) {
-//                 return true;
-//               }
-//             }
-//           )
-// towTruck.tow(answers.vehicleToTow.vin);
               for (let i = 0; i < this.vehicles.length; i++) {
                 if (this.vehicles[i] instanceof Truck)  {
-             const towTruck = this.vehicles[i];
-              towTruck.tow(answers.vehicleToTow);
-
+             let truck:any = this.vehicles[i];
+              truck.tow(answers.vehicleToTow);
+                this.performActions();    
              return;
                 }
           }
@@ -441,7 +430,9 @@ class Cli {
           let wheelieRun = false;
            for (let i = 0; i < this.vehicles.length; i++) {
               if (this.vehicles[i].vin === this.selectedVehicleVin && this.vehicles[i] instanceof Motorbike) {
-                console.log(`${this.vehicles[i].model} did a Wheelie`);
+                let bikey: any = this.vehicles[i];
+                bikey.wheelie(bikey);
+                // console.log(`${this.vehicles[i].model} did a Wheelie`);
                 wheelieRun = true;
                   this.performActions();
                 return;
